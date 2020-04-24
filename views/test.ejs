@@ -21,6 +21,7 @@
   <link href="../assets/css/material-dashboard.minf066.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  
 </head>
 <body class="">
   <div class="wrapper ">
@@ -84,26 +85,58 @@
           
         </div>
       </nav>
-      <div class="card" style="margin-top: 0%; margin-bottom: 0; height:115vh;">
+      <div class="card" style="margin-top: 0%; margin-bottom: 0;">
         <div class="card-header" style="margin-bottom: 0;margin-top: 4%;">
           <h3 class="card-title"><b>News Feed</b></h3>
           <br>
-      </div>
-      <form action="/agriculture" method="GET">
-        <button type="submit" class="btn btn-primary">Primary</button>
-      </form>
+        </div>
+        <div class = "row">
+          <form action="/news.html" method="GET" style="padding-left: 30px;">
+            <button type="submit" class="btn btn-<%=a%> " style="border-radius: 20px;">Rainfall</button>
+          </form>
+          <form action="/agriculture" method="GET" style="padding-left: 10px;">
+            <button type="submit" class="btn btn-<%=b%>" style="border-radius: 20px;">Agriculture</button>
+          </form>
+          <form action="/farmers" method="GET" style="padding-left: 10px;"> 
+            <button type="submit" class="btn btn-<%=c%>" style="border-radius: 20px;">Farmers</button>
+          </form>
+          <form action="/irrigation" method="GET" style="padding-left: 10px;">
+            <button type="submit" class="btn btn-<%=d%>" style="border-radius: 20px;">Irrigation</button>
+          </form>
+        </div>
+      <br>
+      <h3 style="padding-left: 20px;"> Latest news on <%= x %></h3>
+      <br>
+      <div class="row">
       <% data.forEach(function(r) { %>
-        <a href="<%= r.url %>">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%= r.urlToImage %>" alt="Image">
-            <div class="card-body">
-              <h5 class="card-title"><%= r.title %></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div class="col-md-6">
+            <div class="card card-product">
+              <div class="card-header card-header-image">
+                  <img class="img" src="<%= r.urlToImage %>" style="height:250px;">
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="<%= r.url %>" onMouseOver="this.style.color='green'" onMouseOut="this.style.color='black'" style="color: black;"><%= r.title %></a>
+                </h4>
+                <div class="card-description">
+                  <%=r.content %>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <h6>Date of Publish: <%= r.publishedAt.slice(0,10)%></h6>
+                </div>
+                <div class="stats">
+                  <h6 class="card-category">Autor: <%= r.author %></h6>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-    </a>
+        
        <% });%>
+      </div>
+    </div>
+    </div>
       
               <!--   Core JS Files   -->
               <script src="../assets/js/core/jquery.min.js"></script>
