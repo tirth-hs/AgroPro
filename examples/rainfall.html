@@ -10,6 +10,8 @@
   <link rel="apple-touch-icon" href="../assets/img/symbol.png">
   <link rel="icon"href="../assets/img/symbol.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title style="font-size: large;">
     AgroPro
   </title>
@@ -84,10 +86,365 @@
       </nav>
       <div class="card" style="margin-top: 0%; margin-bottom: 0; height:115vh;">
         <div class="card-header" style="margin-bottom: 0;margin-top: 4%;">
-          <h3 class="card-title"><b>Rainfall Prediction</b></h3>
+          <h2 class="card-title"><b>Rainfall Prediction</b></h2>
           <br>
+          <br>
+          <h2>Maharashtra Rainfall Analysis</h2>
+          <br>
+          <br>
+          <div class="row">
+            <div class="card card-product col">
+              <div class="card-header card-header-image" style="background-color:rgb(92, 184, 92);">
+                  <canvas id="myChart">
+
+                  </canvas>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  <h3><b> Rainfall of 12 years</b></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card card-product col">
+              <div class="card-header card-header-image" style="background-color:rgb(163, 4, 243);">
+                  <canvas id="myChart1">
+
+                  </canvas>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  <h3><b>Rainfall Analysis of year </b></h3>
+                  <select name="chartType" id="chartType" onchange="updateChart()" style="font-size: 15px;width: 62px;height:25px;padding-left: 2.5%;">
+                    <option value="y_2008">2008</option>
+                    <option value="y_2009">2009</option>
+                    <option value="y_2010">2010</option>
+                    <option value="y_2011">2011</option>
+                    <option value="y_2012">2012</option>
+                    <option value="y_2013">2013</option>
+                    <option value="y_2014">2014</option>
+                    <option value="y_2015">2015</option>
+                    <option value="y_2016">2016</option>
+                    <option value="y_2017">2017</option>
+                    <option value="y_2018">2018</option>
+                    <option value="y_2019">2019</option>
+                  </select> 
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="card card-product">
+              <div class="card-header card-header-image" style="background-color:rgb(248, 166, 2);">
+                  <canvas id="myChart2">
+
+                  </canvas>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  <h2><b> Rainfall Prediction of year 2020</b></h2>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
+  </div>
+  </div>
+    <script>
+      let myChart = document.getElementById('myChart').getContext('2d');
+      let myChart1 = document.getElementById('myChart1').getContext('2d');
+      let myChart2 = document.getElementById('myChart2').getContext('2d');
+      // Global Options
+      Chart.defaults.global.defaultFontFamily = 'Lato';
+      Chart.defaults.global.defaultFontSize = 14;
+      Chart.defaults.global.defaultFontColor = 'rgba(255,255,255,1)';
+  
+      let massPopChart = new Chart(myChart, {
+        type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data:{
+          labels:['2008', '2009', '2010', '2011', '2012','2013','2014','2015','2016','2017','2018','2019'],
+          datasets:[{
+            data:[
+            916.9,
+            941.7,
+            1027.5,
+            852.6,   
+            689.8,
+            962.4,
+            838,
+            644.5,
+            906.3,
+            994.4,
+            939.31,
+            940.41
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(92, 184, 92,1)'
+            
+          }]
+        },
+        
+        options: {
+  elements: {
+    line: {
+      fill:false,
+      tension: 0
+    }
+  },
+  legend: {
+    display:false
+  },
+  scales: {
+        xAxes: [{
+            gridLines: {
+              borderDash: [2, 5],
+              color:'rgba(0,0,0,0.2)'
+            },
+        }],
+        yAxes: [{
+            gridLines: {
+              borderDash: [2, 5],
+              color:'rgba(0,0,0,0.2)'
+            }   
+        }]
+    }
+}
+        
+      });
+      var y_2008 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0	,0,	18.1,	0.6,	1.1,	107.9,	157.9,	257.6,	312.4,	56.6,	3.7,	0.9            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2009 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0	,1.7	,0.8,	0.4,	7.7,	68.9,	329.8,	148.2,	162.6,	96.2,	121.3,	4.3
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+      var y_2010 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            2.9	,0.1,	0.9,	2.3,	5.4,	185.6,	280.9,	233.2,	165.6,	77.1,	73.4,	0.2
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2011 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0	,0.3,	0.3,5,2.9	,133.3,	261.4	,238.1,	148.4,	62.8,	0,	0
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)',
+          }]
+        };
+        var y_2012 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0	,0	,0	,3	,1.4,	67.9,	203,	187.8,	129.5,	95.2,	2.2,	0
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2013 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0.1	,5.3,	0.8,	5.7,	6	,212.4,	311.8,	147,	210.3,	57.8,	4	,1.3
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2014 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            3.1	,6.2,	24.4,	7.5,	29.8,	44,	277.9,	240.3,	120.4,	38.5,	32.8,	13.1
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2015 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            1.4	,0.8	,41.2,	9.6,	24.4,	177,	111.7,	67.2,	146.6,	48.3,	16.2,	0.1
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2016 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0	,0.7,	7.1,	1.4,	7.7,	100.7,	319.6,	232.7,	171.9,	62.4,	1.1,	0.9
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2017 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0	,0,	0.4,	0.8,	18,	189.2,	280.9,	192,	190.1	,112.8,	5,	5.1
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2018 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0.65,	0.53,	1.85,	3.66,	9.8	,178.25	,281.23,	224.38,	167.55,	61.44	,8.52,	1.45
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2019 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0.65,	0.55,	1.94,	3.67,	9.75,	177.63,	281.6,	224.9,	168.22,	61.23,	8.77,	1.5
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+        var y_2020 = {
+          labels:['JAN', 'FEB', 'MAR', 'APR', 'MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+          datasets:[{
+            data:[
+            0.64,0.55,2.00,3.75,9.78,177.92,282.92,223.67,169.46,61.04,9.03,1.55
+            ],
+            borderColor:'rgba(255, 255, 255, 1)',
+            borderWidth: 3,
+            backgroundColor:'rgba(255, 255, 255,1)'
+            
+          }]
+        };
+      let massPopChart2 = new Chart(myChart1, {
+        type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data: y_2010,
+        options: {
+  elements: {
+  },
+  legend: {
+    display:false
+  },
+  scales: {
+        xAxes: [{
+            gridLines: {
+              borderDash: [2, 5],
+              color:'rgba(0,0,0,0.2)'
+            },
+            barPercentage: 0.3
+        }],
+        yAxes: [{
+            gridLines: {
+              borderDash: [2, 5],
+              color:'rgba(0,0,0,0.2)'
+            }   
+        }]
+    }
+}});
+let massPopChart3 = new Chart(myChart2, {
+        type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data: y_2020,
+        options: {
+  elements: {
+  },
+  legend: {
+    display:false
+  },
+  scales: {
+        xAxes: [{
+            gridLines: {
+              borderDash: [2, 5],
+              color:'rgba(0,0,0,0.2)'
+            },
+            barPercentage: 0.2
+        }],
+        yAxes: [{
+            gridLines: {
+              borderDash: [2, 5],
+              color:'rgba(0,0,0,0.2)'
+            }   
+        }]
+    }
+}});
+
+
+function updateChart() {
+  var changed  = document.getElementById("chartType").value;
+  massPopChart2.destroy();
+ massPopChart2 = new Chart(myChart1, {
+        type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data:eval(changed),
+        options: {
+  elements: {
+  },
+  legend: {
+    display:false
+  },
+  scales: {
+        xAxes: [{
+            gridLines: {
+                display:false
+            },
+            barPercentage: 0.3
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false
+            }   
+        }]
+    }
+}});
+			};
+    </script>
               <!--   Core JS Files   -->
               <script src="../assets/js/core/jquery.min.js"></script>
               <script src="../assets/js/core/popper.min.js"></script>

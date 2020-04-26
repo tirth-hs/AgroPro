@@ -22,7 +22,7 @@ app.get('/news.html',function(req,res){
     var data = response.body
     var json = JSON.parse(data);
     var x,a,b,c,d
-    res.render('test',{data: json.articles.slice(10),x:"Rainfall",a:"success",b:"light",c:"light",d:"light" })
+    res.render('news',{data: json.articles.slice(10),x:"Rainfall",a:"success",b:"light",c:"light",d:"light" })
 });
 })
 app.get('/agriculture',function(req,res){
@@ -30,7 +30,7 @@ app.get('/agriculture',function(req,res){
     var data = response.body
     var json = JSON.parse(data);
     var x,a,b,c,d
-    res.render('test',{data : json.articles.slice(10),x:"Agriculture",a:"light",b:"success",c:"light",d:"light"})
+    res.render('news',{data : json.articles.slice(10),x:"Agriculture",a:"light",b:"success",c:"light",d:"light"})
 });
 })
 app.get('/farmers',function(req,res){
@@ -38,7 +38,7 @@ app.get('/farmers',function(req,res){
     var data = response.body
     var json = JSON.parse(data);
     var x,a,b,c,d
-    res.render('test',{data : json.articles.slice(10),x:"Farmers",a:"light",b:"light",c:"success",d:"light"})
+    res.render('news',{data : json.articles.slice(10),x:"Farmers",a:"light",b:"light",c:"success",d:"light"})
 });
 })
 app.get('/irrigation',function(req,res){
@@ -46,7 +46,7 @@ app.get('/irrigation',function(req,res){
     var data = response.body
     var json = JSON.parse(data);
     var x,a,b,c,d,e
-    res.render('test',{data : json.articles.slice(10),x:"Irrigation",a:"light",b:"light",c:"light",d:"success"})
+    res.render('news',{data : json.articles.slice(10),x:"Irrigation",a:"light",b:"light",c:"light",d:"success"})
 });
 })
 app.get('/schemes.html',function(req,res){
