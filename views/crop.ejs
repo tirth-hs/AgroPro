@@ -88,13 +88,13 @@
           <div id="rss-feeds" style="align-items: ;"></div>
         </div>
       </nav>
-      <div class="card" style="margin-top: 0%; margin-bottom: 0; height:115vh;">
+      <div class="card" style="margin-top: 0%; margin-bottom: 0;">
         <div class="card-header" style="margin-bottom: 0;margin-top: 4%;">
           <h2 class="card-title"><b>Crop Prediction</b></h2>
           <br>
           <div class="card card-product">
             <div class="card-header card-header-image" style="background-color:rgb(248, 166, 2);">
-                <canvas id="myChart2">
+                <canvas id="myChart2" height="100">
       
                 </canvas>
             </div>
@@ -105,8 +105,86 @@
             </div>
           </div>
       </div>
+      <h2 style="text-align: center;font-weight: 300;">Suitable crops for Madhya Maharashtra with an annual rainfall of 942.31 mm are :</h2>
+      <br>
+      <br>
+      <div class="row">
+    
+        <% data.forEach(function(r) { %>
+            <div class="col-md-6">
+              <div class="card card-product">
+                <div class="card-header card-header-image">
+                    <img class="img" src="<%= r.url %>" style="height:250px;">
+                </div>
+                <div class="card-body">
+                  <h2 class="card-title">
+                      <%= r.name%>
+                  </h2>
+                  <div class="card-description">
+                    <div class="row" style="text-align: left;">
+                      <div class="col"><h3>Soil Required</h3></div>
+                      <div class="col"><h3><%=r.soil%></h3></div>
+                      <div class="col">
+                        <h3>
+                          <a data-toggle="modal" data-target="#<%=r.name%> Soil" href="tirth" onMouseOver="this.style.color='green';" onMouseOut="this.style.color='black'" style="color: black">
+                            View More
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="w-100"></div>
+                      <div class="col"><h3>Rainfall Range</h3></div>
+                      <div class="col"><h3> <%=r.min_rain%> - <%=r.max_rain%> mm</h3></div>
+                      <div class="col">
+                        <h3>
+                          <a data-toggle="modal" data-target="#<%=r.name%> Rainfall" href="tirth" onMouseOver="this.style.color='green'" onMouseOut="this.style.color='black'" style="color: black">
+                            View More
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="w-100"></div>
+                      <div class="col"><h3>Temperature Range</h3></div>
+                      <div class="col"><h3> <%=r.min_temp%> - <%=r.max_temp%> &#x2103</h3></div>
+                      <div class="col">
+                        <h3>
+                          <a data-toggle="modal" data-target="#<%=r.name%> Temperature" href="tirth" onMouseOver="this.style.color='green'" onMouseOut="this.style.color='black'" style="color: black">
+                            View More
+                          </a>
+                        </h3>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="<%=r.name%> Soil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" style="align-items: center;">
+                            <iframe src="https://www.google.com/search?igu=1&ei=&q=Soil+type+required+for+<%=r.name%> " height="600px" width="1200px" ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="<%=r.name%> Rainfall" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" style="align-items: center;">
+                        
+                            <iframe src="https://www.google.com/search?igu=1&ei=&q=Rainfall+range+for+<%=r.name%>" height="600px" width="1200px" ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="<%=r.name%> Temperature" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" style="align-items: center;">
+                            <iframe src="https://www.google.com/search?igu=1&ei=&q=Temperature+range+for+<%=r.name%>" height="600px" width="1200px" ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%count++ %>
+            <% if(count%2==0) { %>
+                <div class="w-100"></div>
+           <% }%>
+         <% });%>
+        </div>
     </div>
-   
     </div>
     <script>
       let myChart2 = document.getElementById('myChart2').getContext('2d');

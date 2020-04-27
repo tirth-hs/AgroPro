@@ -1,0 +1,198 @@
+{
+	"crop": [
+		{
+			"name":"Paddy",
+			"min_temp": 15,
+			"max_temp": 27,
+			"min_rain": 900,
+			"max_rain": 2500,
+			"soil": [
+				"Clay",
+				"Loam",
+				"Alluvial"
+			],
+			"url":"assets/img/paddy.jpg"
+		},
+		{
+			"name": "Jowar",
+			"min_temp": 26,
+			"max_temp": 33,
+			"min_rain": 400,
+			"max_rain": 1000,
+			"soil": [
+				"Clay",
+				"Sandy",
+				"Alluvial"
+			],
+			"url": "assets/img/jowar.jpg"
+		},
+		{
+			"name": "Niger",
+			"min_temp": 16,
+			"max_temp": 20,
+			"min_rain": 1000,
+			"max_rain": 1300,
+			"soil": [
+				"clay loam",
+				"sandy loam"
+			]
+		},
+		{
+			"name": "Groundnut",
+			"min_temp": 20,
+			"max_temp": 30,
+			"min_rain": 600,
+			"max_rain": 1500,
+			"soil": [
+				"sandy",
+				"loam"
+			],
+			"url": "https://1.bp.blogspot.com/-77z9DkYpYno/XduTS_coX-I/AAAAAAAAlRo/x-fmnui0OrsQfY5z6mP8h1WpL81S8iR3QCLcBGAsYHQ/s1600/goundnut.jpg"
+		},
+		{
+			"name": "Bajra",
+			"min_temp": 25,
+			"max_temp": 35,
+			"min_rain": 400,
+			"max_rain": 600,
+			"soil": [
+				"sandy",
+				"loam",
+				"red"
+			],
+			"url": "assets/img/bajra.jpg"
+		},
+		{
+			"name": "Urad",
+			"min_temp": 25,
+			"max_temp": 35,
+			"min_rain": 600,
+			"max_rain": 750,
+			"soil": [
+				"black",
+				"sandy loam",
+				"loam",
+				"clay loam"
+			]
+		},
+		{
+			"name": "Wheat",
+			"min_temp": 12,
+			"max_temp": 25,
+			"min_rain": 300,
+			"max_rain": 1000,
+			"soil": [
+				"loam",
+				"clay",
+				"sandy",
+				"black"
+			],
+			"url":"assets/img/wheat.jpg"
+		},
+		{
+			"name": "Gram",
+			"min_temp": 20,
+			"max_temp": 25,
+			"min_rain": 400,
+			"max_rain": 500,
+			"soil": [
+				"clay",
+				"loam"
+			]
+		},
+		{
+			"name": "Lentil",
+			"min_temp": 18,
+			"max_temp": 30,
+			"min_rain": 350,
+			"max_rain": 550,
+			"soil": [
+				"clay"
+			]
+		},
+		{
+			"name": "Peas",
+			"min_temp": 21,
+			"max_temp": 27,
+			"min_rain": 500,
+			"max_rain": 1025,
+			"soil": [
+				"loam"
+			],
+			"url": "assets/img/peas.jpg"
+		},
+		{
+			"name": "Sorghum",
+			"min_temp": 26,
+			"max_temp": 30,
+			"min_rain": 450,
+			"max_rain": 650,
+			"soil": [
+				"loam"
+			]
+		},
+		{
+			"name": "Sugarcane",
+			"min_temp": 20,
+			"max_temp": 35,
+			"min_rain": 850,
+			"max_rain": 1650,
+			"soil": [
+				"alluvium",
+				"black",
+				"red"
+			],
+			"url": "assets/img/sugarcane.jpg"
+		},
+		{
+			"name": "Cotton",
+			"min_temp": 18,
+			"max_temp": 27,
+			"min_rain": 600,
+			"max_rain": 1100,
+			"soil": [
+				"loam",
+				"black",
+				"red"
+			],
+			"url": "assets/img/cotton.jpg"
+		},
+		{
+			"name": "Wal",
+			"min_temp": 22,
+			"max_temp": 35,
+			"min_rain": 750,
+			"max_rain": 2500,
+			"soil": [
+				"sandy",
+				"clay"
+			],
+			"url": "assets/img/wal.jpg"
+		},
+		{
+			"name": "Banana",
+			"min_temp": 10,
+			"max_temp": 46,
+			"min_rain": 600,
+			"max_rain": 1000,
+			"soil": [
+				"loam",
+				"sandy",
+				"clay"
+			],
+			"url": "assets/img/banana.jpg"
+		},
+		{
+			"name": "Rice",
+			"min_temp": 21,
+			"max_temp": 37,
+			"min_rain": 900,
+			"max_rain": 2025,
+			"soil": [
+				"loam",
+				"alluvium"
+			],
+			"url": "assets/img/rice.jpg"
+		}
+	]
+}

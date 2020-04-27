@@ -8,6 +8,16 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname));
 
+'use strict';
+const fs = require('fs');
+let rawdata = fs.readFileSync('crop.json');
+let crop = JSON.parse(rawdata);
+crop = crop.crop;
+
+app.listen(8080,()=>{
+    console.log('Server listening at port 8080')
+});
+
 app.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/examples/rainfall.html'));
 })
@@ -15,7 +25,16 @@ app.get('/rainfall.html',function(req,res){
     res.sendFile(path.join(__dirname+'/examples/rainfall.html'));
 })
 app.get('/crop.html',function(req,res){
-    res.sendFile(path.join(__dirname+'/examples/crop.html'));
+    let crop_final = []
+    let rain = 942.31
+    for(i =0;i<crop.length;i++) {
+        if(crop[i].min_rain<=rain&&rain<=crop[i].max_rain) {
+            crop_final.push(crop[i])
+        }
+    }
+    var data = crop_final
+    var count = 0
+    res.render('crop',{data:data,count:count});
 })
 app.get('/news.html',function(req,res){
     request('http://newsapi.org/v2/everything?qInTitle=rain&sources=the-hindu,the-times-of-india,google-news-in&sortBy=publishedAt&apiKey=3b7021b74bfe474dac3f7a4786491e9b', function (error, response, body) {
@@ -26,7 +45,7 @@ app.get('/news.html',function(req,res){
 });
 })
 app.get('/agriculture',function(req,res){
-    request('http://newsapi.org/v2/everything?qInTitle=agriculture OR crop&sources=the-hindu,the-times-of-india,google-news-in&sortBy=publishedAt&apiKey=3b7021b74bfe474dac3f7a4786491e9b', function (error, response, body) {
+    request('http://newsapi.org/v2/everything?qInTitle=agriculture OR crops&sources=the-hindu,the-times-of-india,google-news-in&sortBy=publishedAt&apiKey=3b7021b74bfe474dac3f7a4786491e9b', function (error, response, body) {
     var data = response.body
     var json = JSON.parse(data);
     var x,a,b,c,d
@@ -52,6 +71,6 @@ app.get('/irrigation',function(req,res){
 app.get('/schemes.html',function(req,res){
     res.sendFile(path.join(__dirname+'/examples/schemes.html'));
 })
-app.listen(8080,()=>{
-    console.log('Server listening at port 8080')
-});
+
+
+
