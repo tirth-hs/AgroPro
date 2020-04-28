@@ -4,3 +4,12 @@
 .actives{
     background-color: green;
 }
+#chartType{
+    font-size: 12px;
+    outline: none;
+    border: thin #ddd solid;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #F7F7F7;
+}
