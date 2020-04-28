@@ -18,10 +18,10 @@ crop = crop.crop;
 
 http.listen(process.env.PORT || 3000, function(){
     app.get('/',function(req,res){
-        res.sendFile(path.join(__dirname+'/examples/rainfall.html'));
+        res.sendFile(path.join(__dirname+'/static/rainfall.html'));
     })
     app.get('/rainfall.html',function(req,res){
-        res.sendFile(path.join(__dirname+'/examples/rainfall.html'));
+        res.sendFile(path.join(__dirname+'/static/rainfall.html'));
     })
     app.get('/crop.html',function(req,res){
         let crop_final = []
@@ -68,7 +68,7 @@ http.listen(process.env.PORT || 3000, function(){
     });
     })
     app.get('/schemes.html',function(req,res){
-        res.sendFile(path.join(__dirname+'/examples/schemes.html'));
+        res.sendFile(path.join(__dirname+'/static/schemes.html'));
     })
 })
 
